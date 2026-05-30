@@ -29,6 +29,7 @@ This repo is the single source of truth for the hackathon build. It's layered so
 | **2. Game design** | [`docs/GAME_DESIGN.md`](docs/GAME_DESIGN.md) | roles, encounters, voting, scoring, progression — the rules |
 | **3. Build spec** | [`docs/BUILD_SPEC.md`](docs/BUILD_SPEC.md) | data models, state machine, tech stack, MVP phasing |
 | **4. LLM design** | [`docs/LLM_DESIGN.md`](docs/LLM_DESIGN.md) | generation prompts, output schemas, guardrails, fallbacks |
+| **Decisions** | [`docs/DECISIONS.md`](docs/DECISIONS.md) | deliberate design bets + their fallbacks (revisit log) |
 | **Research** | [`research/COMPETITIVE_ANALYSIS.md`](research/COMPETITIVE_ANALYSIS.md) | mechanics impulses from Balatro, StS, 9 Kings, Jackbox |
 
 ---

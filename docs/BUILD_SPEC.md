@@ -79,8 +79,11 @@ interface Bonus {
   id: string;
   name: string;               // "Crunch Time"
   description: string;
-  // modifiers applied for next round (or rest of run):
-  effects: Partial<Record<Axis, number>>;
+  // FLAT modifiers — additive nudges to axes (early-run building blocks):
+  flat?: Partial<Record<Axis, number>>;
+  // MULTIPLIERS — multiply axis GAINS earned per round; stack multiplicatively
+  // with each other (two ×1.5 on the same axis => ×2.25). The snowball. See DR-001.
+  mult?: Partial<Record<Axis, number>>;
   optionBias?: 'risky' | 'safe' | 'techUp';
   duration: 'nextRound' | 'restOfRun';
 }
@@ -156,13 +159,30 @@ interface RunState {
 
 ## 4. Scoring resolution
 
+Per-round gain is computed, snowballed by stacked multipliers, then accumulated and checked against the **rising bar** (see DR-001):
+
 ```
-compositeScore = Σ ( axes[a] * weight[a] )      // weights authored, sum to 1
-grade          = bucket(compositeScore)          // S / A / B / C / D / F
-verdict        = LLM(decisionLog, axes, grade)   // see LLM_DESIGN §Verdict
+// at RESOLVE, for the winning option:
+for each axis a:
+  flatBonus   = Σ activeBoni.flat[a]                  // additive
+  multFactor  = Π activeBoni.mult[a]                  // multiplicative — STACKS
+  roundGain[a] = (winningOption.effects[a] + flatBonus) * multFactor
+  axes[a]     += roundGain[a]
+
+roundScore   = Σ ( roundGain[a] * weight[a] )         // weights authored, sum to 1
+barCleared   = roundScore >= bar(round)               // bar(r) ≈ base * 1.4^(r-1)
+
+// at end of run:
+compositeScore = Σ ( axes[a] * weight[a] )
+grade          = bucket(compositeScore, barsCleared)   // S / A / B / C / D / F
+verdict        = LLM(decisionLog, axes, grade)         // see LLM_DESIGN §Verdict
 ```
 
-Boni apply as additive/multiplicative modifiers at RESOLVE time before accumulation. `optionBias` from active boni is passed into option generation/selection for the next round.
+- **Flat** boni add inside the parens; **multipliers** stack (`Π`) and scale the whole gain — this is the Balatro snowball.
+- The **bar grows each round** (geometric, ~×1.4). Missing it isn't game-over; it feeds the grade and gates higher-tier bonus offers.
+- `optionBias` from active boni is passed into option generation/selection for the next round.
+
+> See **DR-001** (Design Decisions) — multiplicative stacking + rising bar is the current bet, with a documented fallback if it feels off in playtest.
 
 ---
 

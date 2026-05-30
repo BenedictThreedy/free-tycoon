@@ -65,12 +65,19 @@ Each of the two roles **picks one** option. We now have **two candidate answers*
 The winning pick is applied to the **Product State** — mutating the multi-axis score and appending to a running **decision log** (which becomes narrative fuel for the final verdict and for the LLM generator). See BUILD_SPEC §ProductState.
 
 ### Step 5 — Boni draft
-Based on the round's result, the game offers **N boni** (default 3). The active player picks **1**. It's carried into the next round and stacks (Balatro-style synergy).
+Based on the round's result, the game offers **N boni** (default 3). The active player picks **1**. It's carried forward and **stacks multiplicatively** with everything picked before it — this is the Balatro snowball, and it's the single biggest dopamine driver in the run (see [research](../research/COMPETITIVE_ANALYSIS.md#5-concrete-impulses--prioritized-for-the-hackathon)).
 
-Boni are **modifiers** — e.g.:
-- *Crunch Time:* +Tech Quality next round, −Team Morale.
-- *Viral Demo:* +Hype, options skew riskier.
-- *Hire a Senior:* DEV options upgrade one tier for the rest of the run.
+Boni come in two flavors, and a single bonus can carry both:
+- **Flat effects** — additive nudges to axes (e.g. *+2 Tech Quality next round*). The early-run building blocks.
+- **Multipliers** — they multiply the axis gains earned each round, and **multipliers stack with each other**. Two ×1.5 boni on the same axis = ×2.25. This is what makes a late-run decision pay off 5× and produces the "watch the build explode" moment.
+
+> *Design intent (from research):* additive boni alone produce a flat, linear run. **Multiplicative stacking against a rising per-round bar** (see §4) is what creates escalation, tension, and "one more run." Boni should *compound*, not just add.
+
+Example boni:
+- *Crunch Time:* +Tech Quality next round, −Team Morale. *(flat)*
+- *Viral Demo:* ×1.5 Hype this round, options skew riskier. *(multiplier)*
+- *Product–Market Obsession:* ×1.3 Market Fit for the rest of the run. *(multiplier, restOfRun)*
+- *Hire a Senior:* DEV options upgrade one tier for the rest of the run. *(option-tier modifier)*
 
 > **MVP:** boni are a **fixed authored pool**. **Vision:** boni are LLM-generated to match the run's emerging product.
 
@@ -87,6 +94,10 @@ The product is tracked across **multiple axes**, accumulated round by round:
 | **Team Morale** | Did the humans survive? |
 | **Innovation** | Is it novel, or a clone? |
 | **Revenue/Hype** | Can it make/raise money? |
+
+**The rising bar.** Each round has a **target score threshold** that grows each round (roughly geometric, e.g. ×1.4/round). A round's winning pick contributes axis gains, which are then **multiplied by the player's stacked multiplier boni** before accumulating. Early rounds are easy to clear on flat gains alone; later rounds require the multiplier snowball to have built up — which is exactly what makes the bonus drafts feel consequential. Missing the bar isn't game-over (the run always completes its 5 rounds), but clearing it comfortably feeds the final grade and unlocks higher-tier bonus offers.
+
+> *Design intent:* the bar is what turns multiplicative boni from "nice flat numbers" into a tension curve. Without a rising threshold, multipliers are just bigger additions; with one, they're survival.
 
 At the end of round 5, two things are produced (locked: **LLM-narrated verdict + score**):
 
@@ -109,7 +120,7 @@ Completing a run grants currency based on the Software Score. Currency buys pers
 
 ## 6. Design pillars (don't lose these)
 
-1. **The roguelike dopamine loop** — escalating stakes, stacking boni, "one more run." Borrowed from Balatro/StS. See research doc.
+1. **The roguelike dopamine loop** — escalating stakes, **multiplicatively stacking boni** against a rising per-round bar, "one more run." Borrowed from Balatro/StS. See [research](../research/COMPETITIVE_ANALYSIS.md) and [DR-001](DECISIONS.md#dr-001--bonus-stacking-multiplicative--rising-bar).
 2. **Jackbox social chaos** — the *vote* is where the fun lives; the optimal answer should be beatable by the funny answer.
 3. **LLM-driven variance** — rounds 3–5 must genuinely surprise the people who played rounds 1–2.
 4. **Authored floor, generated ceiling** — everything ships fixed first, then gets a generative layer behind the same schema. Never block the MVP on the generator.
