@@ -10,11 +10,11 @@ A run seats **5 roles**. In co-op, each human takes one; every empty seat is a C
 
 | Role | Fantasy | Strengths (bias toward) | Weaknesses (bias away from) |
 |------|---------|--------------------------|------------------------------|
-| **DEV** | The one who actually builds it | Tech Quality, Innovation | Market Fit, Morale (overengineers, allergic to meetings) |
-| **CEO** | Vision and vibes | Market Fit, Hype | Tech Quality (promises things that don't exist) |
-| **Sales** | Will sell anything | Revenue, Hype | Tech Quality, Morale (sells features that aren't built) |
-| **HR** | Keeps the humans functioning | Team Morale, Sustainability | Revenue, Innovation (risk-averse, process-heavy) |
-| **PM** | Translates chaos into a roadmap | Market Fit, balance across all | No single dominant axis (jack of all trades) |
+| **DEV** | The craftsperson who builds it | Tech Quality, Innovation | Market Fit, Morale (deep in the build, less tuned to the room) |
+| **CEO** | The visionary | Market Fit, Hype | Tech Quality (dreams big, light on the details) |
+| **Sales** | The closer | Revenue, Hype | Tech Quality, Morale (sees the deal before the implementation) |
+| **HR** | The team's anchor | Team Morale, Sustainability | Revenue, Innovation (steady and people-first, plays it safe) |
+| **PM** | The synthesizer | Market Fit, balance across all | No single dominant axis (jack of all trades, master of none) |
 
 > **MVP:** roles, strengths, and weaknesses are a **fixed authored list**. **Vision:** roles and their attributes become LLM-generated so no two runs share the same cast. The data schema is identical for both (see BUILD_SPEC §Role).
 
@@ -121,6 +121,6 @@ Completing a run grants currency based on the Software Score. Currency buys pers
 ## 6. Design pillars (don't lose these)
 
 1. **The roguelike dopamine loop** — escalating stakes, **multiplicatively stacking boni** against a rising per-round bar, "one more run." Borrowed from Balatro/StS. See [research](../research/COMPETITIVE_ANALYSIS.md) and [DR-001](DECISIONS.md#dr-001--bonus-stacking-multiplicative--rising-bar).
-2. **Jackbox social chaos** — the *vote* is where the fun lives; the optimal answer should be beatable by the funny answer.
+2. **Jackbox social energy** — the *vote* is where the fun lives; the optimal answer should be beatable by the bolder or funnier answer.
 3. **LLM-driven variance** — rounds 3–5 must genuinely surprise the people who played rounds 1–2.
 4. **Authored floor, generated ceiling** — everything ships fixed first, then gets a generative layer behind the same schema. Never block the MVP on the generator.

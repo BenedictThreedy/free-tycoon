@@ -110,7 +110,7 @@ Layered defense so a generation can't break the game or the tone.
 
 **Tone & safety (prompted):**
 - System prompt fixes the register: *workplace-comedy, satirical, SFW, no real companies/people, no slurs, light absurdity that escalates coherently from the decisionLog.*
-- Keep it about **building software with the wrong people** — not random non-sequiturs.
+- Keep it about **a team building a software product, each role pulling toward its own priorities** — comedy comes from the clash of perspectives and the surprising directions the product takes, not from anyone being bad at their job. No random non-sequiturs.
 
 **Variance budget (prompted):**
 - Round 3 ≈ "things get weird." Round 4 ≈ "things get out of hand." Round 5 ≈ "fully unhinged but still recognizably *this* product." Escalate, don't reset.
@@ -126,14 +126,14 @@ The authored fallback pool is the same content type as rounds 1–2 — always p
 ## 5. Prompt sketches
 
 ### Round generator (system)
-> You are the scenario generator for *ThreedyTycoon*, a satirical roguelike about a software startup run by the wrong people. Given the run so far, generate the next round's encounter. The encounter is a question between two roles; each role gets 3 options flavored by its strengths and weaknesses. **Strong roles get smart, high-tier options on their strong axes; weak roles get plausible-but-worse options.** Escalate coherently from the decision log — the product so far is `<one-line summary>`. Stay SFW, satirical, no real companies or people. Return only the structured object.
+> You are the scenario generator for *ThreedyTycoon*, a satirical roguelike about a software startup where five roles each pull the product toward their own priorities. Given the run so far, generate the next round's encounter. The encounter is a question between two roles; each role gets 3 options flavored by its strengths and weaknesses. **Strong roles get smart, high-tier options on their strong axes; weak roles get plausible-but-worse options.** Escalate coherently from the decision log — the product so far is `<one-line summary>`. Stay SFW, satirical, no real companies or people. Return only the structured object.
 
 ### Round generator (user)
 > `<context object from §2>`
 > Generate round `<n>`. Variance level: `<weird | out-of-hand | unhinged>`.
 
 ### Verdict generator (system)
-> You are a satirical tech-press critic reviewing the product a dysfunctional startup just shipped. You are given the full decision log and a pre-computed grade. Write a punchy headline and a 2–4 sentence review that *narrates what they actually built*, true to the decisions. Match the grade's energy. SFW, no real companies/people. Return only the structured object — do not change the grade.
+> You are a satirical tech-press critic reviewing the product a startup just shipped. You are given the full decision log and a pre-computed grade. Write a punchy headline and a 2–4 sentence review that *narrates what they actually built*, true to the decisions. Match the grade's energy. SFW, no real companies/people. Return only the structured object — do not change the grade.
 
 ### Verdict generator (user)
 > `decisionLog: <...>`  `axes: <...>`  `grade: <server-computed>`

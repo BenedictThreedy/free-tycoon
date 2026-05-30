@@ -1,8 +1,8 @@
 # ThreedyTycoon
 
-> A roguelike party game about building software with the wrong people in the room.
+> A roguelike party game about building a software product together — one decision at a time.
 
-**ThreedyTycoon** is a multiplayer roguelike that crosses the **dopamine loop of deck-building roguelikes** (Balatro, Slay the Spire) with the **couch-and-phone social chaos of Jackbox**. You and up to four others each play a role in a fictional software company — **DEV, CEO, Sales, HR, Product Management** — and over **5 rounds** you collectively (and contentiously) build a product. At the end, an LLM judge writes a verdict and scores what you shipped. Play solo against the CPU, or in co-op where the seats you don't fill are played by everyone else.
+**ThreedyTycoon** is a multiplayer roguelike that crosses the **dopamine loop of deck-building roguelikes** (Balatro, Slay the Spire) with the **couch-and-phone social energy of Jackbox**. You and up to four others each play a role in a fictional software company — **DEV, CEO, Sales, HR, Product Management** — and over **5 rounds** you collectively build a product. Each role sees the same decision through a different lens, and where those perspectives meet is where the fun (and the surprises) happen. At the end, an LLM judge writes a verdict and scores what you shipped. Play solo against the CPU, or in co-op where the seats you don't fill are played by everyone else.
 
 The hook: the first two rounds feel like a normal software project. Rounds 3–5 are **generated live by an LLM** seeded on the choices you already made — so every run drifts somewhere new, and the product you end up with is genuinely a surprise.
 
@@ -13,7 +13,7 @@ The hook: the first two rounds feel like a normal software project. Rounds 3–5
 - **Genre:** Roguelike × party game (Jackbox topology: one shared screen, everyone joins on their phone with a room code).
 - **Players:** 1 (solo vs CPU) to 5 (co-op).
 - **Length:** One *run* = 5 rounds ≈ 10–15 minutes.
-- **Core fantasy:** "We're a startup. We have no idea what we're doing. Let's ship it anyway."
+- **Core fantasy:** "We're a startup, five strong opinions in one room — let's build something and find out what we made."
 - **Replay engine:** Rounds 1–2 are fixed/authored; rounds 3–5 are LLM-generated from your run's context. High variance → high replayability.
 - **The payoff:** A fake-tech-press **product verdict** + a multi-axis **Software Score** that's different every time.
 
