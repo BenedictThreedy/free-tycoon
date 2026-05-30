@@ -1,4 +1,4 @@
-# Free Tycoon — Design Decisions
+# ThreedyTycoon — Design Decisions
 
 A lightweight log of design bets we've made deliberately — each with the **reasoning**, the **current choice**, and the **fallback** we'd switch to if the current one feels off in playtest. These are *decisions to revisit*, not locked rules.
 

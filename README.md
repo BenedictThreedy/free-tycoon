@@ -1,8 +1,8 @@
-# Free Tycoon
+# ThreedyTycoon
 
 > A roguelike party game about building software with the wrong people in the room.
 
-**Free Tycoon** is a multiplayer roguelike that crosses the **dopamine loop of deck-building roguelikes** (Balatro, Slay the Spire) with the **couch-and-phone social chaos of Jackbox**. You and up to four others each play a role in a fictional software company — **DEV, CEO, Sales, HR, Product Management** — and over **5 rounds** you collectively (and contentiously) build a product. At the end, an LLM judge writes a verdict and scores what you shipped. Play solo against the CPU, or in co-op where the seats you don't fill are played by everyone else.
+**ThreedyTycoon** is a multiplayer roguelike that crosses the **dopamine loop of deck-building roguelikes** (Balatro, Slay the Spire) with the **couch-and-phone social chaos of Jackbox**. You and up to four others each play a role in a fictional software company — **DEV, CEO, Sales, HR, Product Management** — and over **5 rounds** you collectively (and contentiously) build a product. At the end, an LLM judge writes a verdict and scores what you shipped. Play solo against the CPU, or in co-op where the seats you don't fill are played by everyone else.
 
 The hook: the first two rounds feel like a normal software project. Rounds 3–5 are **generated live by an LLM** seeded on the choices you already made — so every run drifts somewhere new, and the product you end up with is genuinely a surprise.
 

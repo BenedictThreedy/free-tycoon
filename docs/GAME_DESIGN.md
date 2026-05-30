@@ -1,4 +1,4 @@
-# Free Tycoon — Game Design
+# ThreedyTycoon — Game Design
 
 The rules layer. No code here — just how the game plays. For data models and the state machine, see [`BUILD_SPEC.md`](BUILD_SPEC.md). For how rounds 3–5 are generated, see [`LLM_DESIGN.md`](LLM_DESIGN.md).
 

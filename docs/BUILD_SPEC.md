@@ -1,4 +1,4 @@
-# Free Tycoon — Build Spec
+# ThreedyTycoon — Build Spec
 
 Implementation layer: tech stack, data models, state machine, and the phased hackathon plan. Rules live in [`GAME_DESIGN.md`](GAME_DESIGN.md); generation lives in [`LLM_DESIGN.md`](LLM_DESIGN.md).
 

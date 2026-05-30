@@ -1,4 +1,4 @@
-# Free Tycoon — LLM Design
+# ThreedyTycoon — LLM Design
 
 How rounds 3–5 are generated and how the final verdict is written. This is the system that turns a fixed opening into an unpredictable product. Rules: [`GAME_DESIGN.md`](GAME_DESIGN.md). Data shapes: [`BUILD_SPEC.md`](BUILD_SPEC.md).
 
@@ -126,7 +126,7 @@ The authored fallback pool is the same content type as rounds 1–2 — always p
 ## 5. Prompt sketches
 
 ### Round generator (system)
-> You are the scenario generator for *Free Tycoon*, a satirical roguelike about a software startup run by the wrong people. Given the run so far, generate the next round's encounter. The encounter is a question between two roles; each role gets 3 options flavored by its strengths and weaknesses. **Strong roles get smart, high-tier options on their strong axes; weak roles get plausible-but-worse options.** Escalate coherently from the decision log — the product so far is `<one-line summary>`. Stay SFW, satirical, no real companies or people. Return only the structured object.
+> You are the scenario generator for *ThreedyTycoon*, a satirical roguelike about a software startup run by the wrong people. Given the run so far, generate the next round's encounter. The encounter is a question between two roles; each role gets 3 options flavored by its strengths and weaknesses. **Strong roles get smart, high-tier options on their strong axes; weak roles get plausible-but-worse options.** Escalate coherently from the decision log — the product so far is `<one-line summary>`. Stay SFW, satirical, no real companies or people. Return only the structured object.
 
 ### Round generator (user)
 > `<context object from §2>`
